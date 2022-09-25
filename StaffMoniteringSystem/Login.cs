@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+ 
 
 namespace StaffMoniteringSystem
 {
@@ -20,12 +21,16 @@ namespace StaffMoniteringSystem
 
             InitializeComponent();
 
+ 
+
+ ;
+
+            //label8.Text = ProductVersion;
             Load += new EventHandler(Login_Load);
 
 
         }
-
-
+ 
 
 
         private async void Login_Load(object sender, EventArgs e)

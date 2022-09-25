@@ -9,6 +9,7 @@ using System.Net;
 using System.Timers;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Reflection;
 
 namespace StaffMoniteringSystem
 {
@@ -45,9 +46,7 @@ namespace StaffMoniteringSystem
             chart2.Series["s2"].Points.AddXY("3", "56");
             chart2.Series["s2"].Points.AddXY("4", "78");
 
-
-
-
+ 
             Bitmap bm = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics g = Graphics.FromImage(bm);
             g.CopyFromScreen(0, 0, 0, 0, bm.Size);
@@ -263,6 +262,12 @@ namespace StaffMoniteringSystem
             Properties.Settings.Default.Save();
 
             Application.Exit();
+        }
+
+        private void Guna2Button3_Click(object sender, EventArgs e)
+        {
+            var verion = new Version();
+            verion.Show();
         }
     }
 }

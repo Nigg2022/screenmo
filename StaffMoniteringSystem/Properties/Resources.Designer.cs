@@ -83,6 +83,26 @@ namespace StaffMoniteringSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap available_updates_64__1_ {
+            get {
+                object obj = ResourceManager.GetObject("available-updates-64 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap available_updates_64__2_ {
+            get {
+                object obj = ResourceManager.GetObject("available-updates-64 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle_24 {
             get {
                 object obj = ResourceManager.GetObject("circle-24", resourceCulture);
@@ -336,6 +356,16 @@ namespace StaffMoniteringSystem.Properties {
         internal static System.Drawing.Bitmap sinchronize_24 {
             get {
                 object obj = ResourceManager.GetObject("sinchronize-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tick_33848__1_ {
+            get {
+                object obj = ResourceManager.GetObject("tick-33848 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
