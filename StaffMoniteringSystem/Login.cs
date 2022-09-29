@@ -5,7 +5,8 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
- 
+using System.Net;
+using System.IO;
 
 namespace StaffMoniteringSystem
 {
@@ -14,60 +15,131 @@ namespace StaffMoniteringSystem
         public static String quantity;
         public static String quantity_to;
 
- 
-
         public  Login()
         {
 
             InitializeComponent();
-
  
-
- ;
-
             //label8.Text = ProductVersion;
             Load += new EventHandler(Login_Load);
 
 
         }
+
  
 
-
-        private async void Login_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
-
-            label7.Text = "We are working you to get inside Please wait.";
-
-            var useName = Properties.Settings.Default.userName;
-            var passWord = Properties.Settings.Default.passUser;
-            var userToken = Properties.Settings.Default.tokenUser;
-            var displayName = Properties.Settings.Default.displayName;
-
-          
-            if (useName != "" && passWord != "")
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/data.dat";
+            if (File.Exists(path))
             {
-                String token = await RunAsync(useName, passWord);
+               
+                string contents = File.ReadAllText(path);
+                string[] values = contents.Split(',');
+                var fifrname = values[0].ToString();
+                var fifrtoken = values[1].ToString();
 
-                if (token == "")
+                try
                 {
-                    label7.Text = "Login Fail, Contect Administrator.";
-                }
-                else
-                {
-                    this.Hide();
-                    var Dashboard = new Dashboard(token);
-                    Dashboard.Closed += (s, args) => this.Close();
-                    Dashboard.Show();
+                  
+                    WebClient clientck = new WebClient();
+                    clientck.Credentials = CredentialCache.DefaultCredentials;
+                    clientck.Headers.Add("Token", fifrtoken);
+                    var responseck = clientck.UploadString(@"https://friendsmatrimony.com/api/admin/check-status", "status");
+                    var jObjectck = JObject.Parse(responseck);
+                    var status = jObjectck.GetValue("status").ToString();
+
+                    if(status == "True")
+                    {
+
+
+
+
+                        Properties.Settings.Default.tokenUser = fifrtoken;
+                        Properties.Settings.Default.displayName = fifrname;
+                        Properties.Settings.Default.Save();
+
+                        quantity = fifrname;
+                        if (File.Exists(path))
+                        {
+                            File.Delete(path);
+                        }
+
+
+                        this.WindowState = FormWindowState.Minimized;
+                        this.ShowInTaskbar = false;
+                        var Dashboard = new Dashboard(fifrtoken);
+                        Dashboard.Closed += (s, args) => this.Close();
+                        Dashboard.Show();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show(status);
+                    }
+
                     
                 }
+                catch (Exception error)
+                {
+
+                }
 
 
+
+
+
+
+
+
+
+
+               //MessageBox.Show(values[0].ToString());
 
             }
             else
-            {
-                label7.Text = "Please Login to get inside.";
-            }
+            {// file exist else *************************
+
+                label7.Text = "We are working you to get inside Please wait.";
+
+                var useName = Properties.Settings.Default.userName;
+                var passWord = Properties.Settings.Default.passUser;
+                var userToken = Properties.Settings.Default.tokenUser;
+                var displayName = Properties.Settings.Default.displayName;
+
+
+                if (useName != "" && passWord != "" && userToken != "")
+                {
+                    // String token = await RunAsync(useName, passWord);
+
+                    quantity = displayName;
+                    quantity_to = userToken;
+
+                    if (userToken == "")
+                    {
+                        label7.Text = "Please Login to get inside.";
+                    }
+                    else
+                    {
+                        this.WindowState = FormWindowState.Minimized;
+                        this.ShowInTaskbar = false;
+                        var Dashboard = new Dashboard(userToken);
+                        Dashboard.Closed += (s, args) => this.Close();
+                        Dashboard.Show();
+
+                    }
+
+                }
+                else
+                {
+                    label7.Text = "Please Login to get inside.";
+                }
+
+            }// file exist else ***********************************
+
+
+ 
+
         }
 
 

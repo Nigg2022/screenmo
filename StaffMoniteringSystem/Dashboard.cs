@@ -9,7 +9,7 @@ using System.Net;
 using System.Timers;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System.Reflection;
+
 
 namespace StaffMoniteringSystem
 {
@@ -268,6 +268,38 @@ namespace StaffMoniteringSystem
         {
             var verion = new Version();
             verion.Show();
+        }
+
+
+        private Point windowLocation;
+
+        private void Guna2GradientPanel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.windowLocation = e.Location;
+        }
+
+        private void Guna2GradientPanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Refers to the Form location (or whatever you trigger the event on)
+                this.Location = new Point(
+                    (this.Location.X - windowLocation.X) + e.X,
+                    (this.Location.Y - windowLocation.Y) + e.Y
+                );
+
+                this.Update();
+            }
+        }
+
+        private void Guna2Button4_Click(object sender, EventArgs e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            StreamWriter File = new StreamWriter(path+"/data.dat");
+
+            File.Write(Login.quantity +","+ Global.TokenY.ToString());
+            File.Close();
+
         }
     }
 }
