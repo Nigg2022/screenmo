@@ -393,6 +393,16 @@ namespace StaffMoniteringSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user_female_icon {
+            get {
+                object obj = ResourceManager.GetObject("user-female-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap v3_0200197 {
             get {
                 object obj = ResourceManager.GetObject("v3_0200197", resourceCulture);

@@ -32,7 +32,7 @@
     <MinimumRequiredVersion>1.0.0.27</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>34</ApplicationRevision>
+    <ApplicationRevision>35</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -294,6 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fm.ico" />
+    <None Include="Resources\user-female-icon.png" />
     <None Include="Resources\copy-link-48.png" />
     <None Include="Resources\tick-33848 %281%29.png" />
     <None Include="Resources\available-updates-64 %281%29.png" />

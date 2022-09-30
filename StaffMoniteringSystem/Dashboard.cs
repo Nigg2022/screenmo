@@ -9,7 +9,7 @@ using System.Net;
 using System.Timers;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-
+using Microsoft.Win32;
 
 namespace StaffMoniteringSystem
 {
@@ -31,7 +31,11 @@ namespace StaffMoniteringSystem
 
         public Dashboard(string token)
         {
+
             InitializeComponent();
+
+            SetStartup(); //This function will set your app in the registry to run on startup. I'll explain this function below.
+            MinimizeApp("-minimized");
 
             chart1.Series["Series1"].Points.AddXY("1", "60");
             chart1.Series["Series1"].Points.AddXY("2", "60");
@@ -62,7 +66,61 @@ namespace StaffMoniteringSystem
  
     }
 
- 
+
+        // ******************** system startup
+
+        static void Main(string[] args)
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            if (args.Length != 0)
+            {
+                Application.Run(new Dashboard(args[0]));
+            }
+            else
+            {
+                Application.Run(new Dashboard("normalState"));
+            }
+        }
+
+
+        public void MinimizeApp(string parameter)
+        {
+            if (parameter == "-minimized")
+            {
+                this.WindowState = FormWindowState.Minimized;
+                notifyIcon1.Visible = true;
+                notifyIcon1.BalloonTipText = "Program is started and running in the background...";
+                notifyIcon1.ShowBalloonTip(500);
+                Hide();
+            }
+
+        }
+
+        private void SetStartup()
+        {
+            Microsoft.Win32.RegistryKey key;
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            key.SetValue("StaffMoniteringSystem", Application.ExecutablePath.ToString());
+            string ApplicationPath = "\"" + Application.ExecutablePath.ToString() + "\" -minimized";
+            key.SetValue("StaffMoniteringSystem", ApplicationPath);
+            key.Close();
+        }
+
+        // *********************** system startup
+
+
+
+
+
+
+
+
+
+
+
+
+
         private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             string mainfolderpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -199,7 +257,7 @@ namespace StaffMoniteringSystem
         {
             ShowInTaskbar = true;
             notifyIcon1.Visible = false;
-            //  WindowState = FormWindowState.Normal;
+              WindowState = FormWindowState.Normal;
 
             Dashboard dashboard = new Dashboard(Global.TokenY);
             dashboard.Show();
@@ -300,6 +358,20 @@ namespace StaffMoniteringSystem
             File.Write(Login.quantity +","+ Global.TokenY.ToString());
             File.Close();
 
+        }
+
+        private void Guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                guna2CirclePictureBox1.Image = new Bitmap(open.FileName);
+            
+            }
         }
     }
 }
