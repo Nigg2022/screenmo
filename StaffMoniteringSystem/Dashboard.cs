@@ -573,7 +573,7 @@ namespace StaffMoniteringSystem
 
         private void Guna2Button4_Click(object sender, EventArgs e)
         {
-            string path = Path.GetPathRoot(Environment.SystemDirectory);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             StreamWriter File = new StreamWriter(path+"/data.dat");
         //    StreamWriter remoteFile = new StreamWriter(@"\\192.168.8.173\Users\Default\Desktop");
