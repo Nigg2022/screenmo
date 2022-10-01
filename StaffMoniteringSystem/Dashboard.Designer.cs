@@ -29,63 +29,62 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.lstLocal = new System.Windows.Forms.ListView();
-            this.pcloader = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.minimize = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pcloader = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.minimize = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcloader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +97,6 @@
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.BorderRadius = 30;
-            this.guna2GradientPanel1.Controls.Add(this.lstLocal);
             this.guna2GradientPanel1.Controls.Add(this.pcloader);
             this.guna2GradientPanel1.Controls.Add(this.pictureBox7);
             this.guna2GradientPanel1.Controls.Add(this.minimize);
@@ -122,49 +120,6 @@
             this.guna2GradientPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Guna2GradientPanel1_MouseDown);
             this.guna2GradientPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Guna2GradientPanel1_MouseMove);
             // 
-            // lstLocal
-            // 
-            this.lstLocal.HideSelection = false;
-            this.lstLocal.Location = new System.Drawing.Point(825, 267);
-            this.lstLocal.Name = "lstLocal";
-            this.lstLocal.Size = new System.Drawing.Size(158, 124);
-            this.lstLocal.TabIndex = 15;
-            this.lstLocal.UseCompatibleStateImageBehavior = false;
-            this.lstLocal.Visible = false;
-            // 
-            // pcloader
-            // 
-            this.pcloader.Image = global::StaffMoniteringSystem.Properties.Resources.kioskbuilder;
-            this.pcloader.Location = new System.Drawing.Point(831, 80);
-            this.pcloader.Name = "pcloader";
-            this.pcloader.Size = new System.Drawing.Size(149, 96);
-            this.pcloader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcloader.TabIndex = 14;
-            this.pcloader.TabStop = false;
-            this.pcloader.Visible = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Image = global::StaffMoniteringSystem.Properties.Resources.circle_24__1_;
-            this.pictureBox7.Location = new System.Drawing.Point(184, 15);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(13, 12);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 13;
-            this.pictureBox7.TabStop = false;
-            // 
-            // minimize
-            // 
-            this.minimize.Image = global::StaffMoniteringSystem.Properties.Resources.minimize_window_24;
-            this.minimize.Location = new System.Drawing.Point(1043, 11);
-            this.minimize.Name = "minimize";
-            this.minimize.Size = new System.Drawing.Size(16, 16);
-            this.minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.minimize.TabIndex = 12;
-            this.minimize.TabStop = false;
-            this.minimize.Click += new System.EventHandler(this.Minimize_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -177,39 +132,28 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Latest Browser History";
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::StaffMoniteringSystem.Properties.Resources.sinchronize_24;
-            this.pictureBox6.Location = new System.Drawing.Point(785, 50);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 10;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.PictureBox6_Click);
-            // 
             // guna2DataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.guna2DataGridView1.ColumnHeadersHeight = 4;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(70, 80);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
@@ -256,17 +200,6 @@
             this.guna2DateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.guna2DateTimePicker1.TabIndex = 6;
             this.guna2DateTimePicker1.Value = new System.DateTime(2022, 8, 20, 8, 24, 26, 499);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::StaffMoniteringSystem.Properties.Resources.close_window_24;
-            this.pictureBox2.Location = new System.Drawing.Point(1064, 11);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // label3
             // 
@@ -319,6 +252,150 @@
             this.panel2.Size = new System.Drawing.Size(1033, 251);
             this.panel2.TabIndex = 1;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Control;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(754, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 18);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Last Screenshot Taken";
+            // 
+            // chart2
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart2.Legends.Add(legend3);
+            this.chart2.Location = new System.Drawing.Point(421, 16);
+            this.chart2.Name = "chart2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "s2";
+            this.chart2.Series.Add(series3);
+            this.chart2.Size = new System.Drawing.Size(327, 226);
+            this.chart2.TabIndex = 1;
+            this.chart2.Text = "chart2";
+            title3.Name = "Title1";
+            title3.Text = "Today Performance";
+            this.chart2.Titles.Add(title3);
+            // 
+            // chart1
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
+            this.chart1.Location = new System.Drawing.Point(9, 16);
+            this.chart1.Name = "chart1";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(406, 226);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "Last Week performance";
+            title4.Name = "Title1";
+            title4.Text = "Last Week Performance";
+            this.chart1.Titles.Add(title4);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.guna2Button4);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.guna2Button3);
+            this.panel1.Controls.Add(this.guna2CirclePictureBox1);
+            this.panel1.Controls.Add(this.guna2Button2);
+            this.panel1.Controls.Add(this.guna2Button1);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(61, 648);
+            this.panel1.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Silver;
+            this.label9.Location = new System.Drawing.Point(2, 623);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 16);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "V 1.0.0.37b";
+            this.label9.Click += new System.EventHandler(this.Label9_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Staff Management System";
+            this.notifyIcon1.Click += new System.EventHandler(this.NotifyIcon1_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker1_RunWorkerCompleted);
+            // 
+            // pcloader
+            // 
+            this.pcloader.Image = global::StaffMoniteringSystem.Properties.Resources.kioskbuilder;
+            this.pcloader.Location = new System.Drawing.Point(831, 80);
+            this.pcloader.Name = "pcloader";
+            this.pcloader.Size = new System.Drawing.Size(149, 96);
+            this.pcloader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcloader.TabIndex = 14;
+            this.pcloader.TabStop = false;
+            this.pcloader.Visible = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Image = global::StaffMoniteringSystem.Properties.Resources.circle_24__1_;
+            this.pictureBox7.Location = new System.Drawing.Point(184, 15);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(13, 12);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 13;
+            this.pictureBox7.TabStop = false;
+            // 
+            // minimize
+            // 
+            this.minimize.Image = global::StaffMoniteringSystem.Properties.Resources.minimize_window_24;
+            this.minimize.Location = new System.Drawing.Point(1043, 11);
+            this.minimize.Name = "minimize";
+            this.minimize.Size = new System.Drawing.Size(16, 16);
+            this.minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.minimize.TabIndex = 12;
+            this.minimize.TabStop = false;
+            this.minimize.Click += new System.EventHandler(this.Minimize_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::StaffMoniteringSystem.Properties.Resources.sinchronize_24;
+            this.pictureBox6.Location = new System.Drawing.Point(785, 50);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 10;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.PictureBox6_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::StaffMoniteringSystem.Properties.Resources.close_window_24;
+            this.pictureBox2.Location = new System.Drawing.Point(1064, 11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::StaffMoniteringSystem.Properties.Resources.video_call_24__1_;
@@ -341,18 +418,6 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.PictureBox4_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(754, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(168, 18);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Last Screenshot Taken";
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(755, 45);
@@ -361,60 +426,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
-            // 
-            // chart2
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(421, 16);
-            this.chart2.Name = "chart2";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "s2";
-            this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(327, 226);
-            this.chart2.TabIndex = 1;
-            this.chart2.Text = "chart2";
-            title1.Name = "Title1";
-            title1.Text = "Today Performance";
-            this.chart2.Titles.Add(title1);
-            // 
-            // chart1
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(9, 16);
-            this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(406, 226);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "Last Week performance";
-            title2.Name = "Title1";
-            title2.Text = "Last Week Performance";
-            this.chart1.Titles.Add(title2);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.guna2Button4);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.guna2Button3);
-            this.panel1.Controls.Add(this.guna2CirclePictureBox1);
-            this.panel1.Controls.Add(this.guna2Button2);
-            this.panel1.Controls.Add(this.guna2Button1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(61, 648);
-            this.panel1.TabIndex = 0;
             // 
             // guna2Button4
             // 
@@ -432,17 +443,6 @@
             this.guna2Button4.Size = new System.Drawing.Size(51, 45);
             this.guna2Button4.TabIndex = 9;
             this.guna2Button4.Click += new System.EventHandler(this.Guna2Button4_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(3, 623);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 16);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "V 1.0.0.35";
             // 
             // guna2Button3
             // 
@@ -517,17 +517,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Staff Management System";
-            this.notifyIcon1.Click += new System.EventHandler(this.NotifyIcon1_Click);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker1_RunWorkerCompleted);
-            // 
             // Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -542,21 +531,21 @@
             this.Text = "Dashboard";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcloader)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcloader)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -595,6 +584,5 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private System.Windows.Forms.ListView lstLocal;
     }
 }
