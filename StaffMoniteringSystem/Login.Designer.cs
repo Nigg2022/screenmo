@@ -52,6 +52,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
@@ -276,7 +277,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 16);
             this.label8.TabIndex = 6;
-            this.label8.Text = "V 1.0.0.35";
+            this.label8.Text = "V 1.0.0.36";
             // 
             // pictureBox1
             // 
@@ -296,6 +297,11 @@
             // 
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // Login
             // 
@@ -350,6 +356,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

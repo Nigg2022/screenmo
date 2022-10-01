@@ -113,6 +113,16 @@ namespace StaffMoniteringSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap circle_24__1_ {
+            get {
+                object obj = ResourceManager.GetObject("circle-24 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_window_24 {
             get {
                 object obj = ResourceManager.GetObject("close-window-24", resourceCulture);

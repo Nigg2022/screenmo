@@ -50,13 +50,10 @@ namespace StaffMoniteringSystem
                     var responseck = clientck.UploadString(@"https://friendsmatrimony.com/api/admin/check-status", "status");
                     var jObjectck = JObject.Parse(responseck);
                     var status = jObjectck.GetValue("status").ToString();
-
-                    if(status == "True")
+                    MessageBox.Show(status);
+                    if (status == "True")
                     {
-
-
-
-
+ 
                         Properties.Settings.Default.tokenUser = fifrtoken;
                         Properties.Settings.Default.displayName = fifrname;
                         Properties.Settings.Default.Save();
@@ -67,7 +64,6 @@ namespace StaffMoniteringSystem
                             File.Delete(path);
                         }
 
-
                         this.WindowState = FormWindowState.Minimized;
                         this.ShowInTaskbar = false;
                         var Dashboard = new Dashboard(fifrtoken);
@@ -77,7 +73,8 @@ namespace StaffMoniteringSystem
                     }
                     else
                     {
-                        MessageBox.Show(status);
+                        MessageBox.Show("Incorrect Token, Please login Again" + status);
+
                     }
 
                     

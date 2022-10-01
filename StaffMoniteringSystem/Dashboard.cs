@@ -9,13 +9,17 @@ using System.Net;
 using System.Timers;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using Microsoft.Win32;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Diagnostics;
+using System.Linq;
 
 namespace StaffMoniteringSystem
 {
     public partial class Dashboard : Form
     {
         public static String checklogin;
+ 
        
 
         class Global
@@ -34,7 +38,7 @@ namespace StaffMoniteringSystem
 
             InitializeComponent();
 
-            SetStartup(); //This function will set your app in the registry to run on startup. I'll explain this function below.
+            SetStartup(); //This function will set your app in the registry to run on startup.
             MinimizeApp("-minimized");
 
             chart1.Series["Series1"].Points.AddXY("1", "60");
@@ -63,8 +67,204 @@ namespace StaffMoniteringSystem
             Global.TokenY = token;
 
             label2.Text = "Hello " + Login.quantity;
- 
-    }
+            // check wifi connected devices
+           // Load += new EventHandler(Dashboard_Load);
+
+            //MessageBox.Show(CheckStatus());
+            if (CheckStatus() == "True")
+            {
+                pictureBox7.Image = StaffMoniteringSystem.Properties.Resources.circle_24;
+            }
+            else
+            {
+                notifyIcon1.Visible = true;
+                notifyIcon1.BalloonTipText = CheckStatus() + "! You are not loggedin friendsmatrimony.com Website, System cannot send Screenshots to server. ";
+                notifyIcon1.ShowBalloonTip(500);
+                Hide();
+                pictureBox7.Image = StaffMoniteringSystem.Properties.Resources.circle_24__1_;
+            }
+            
+
+
+
+
+
+
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+            lstLocal.View = View.Details;
+            lstLocal.Clear();
+            lstLocal.GridLines = true;
+            lstLocal.FullRowSelect = true;
+            lstLocal.BackColor = System.Drawing.Color.Aquamarine;
+            lstLocal.Columns.Add("IP", 100);
+            lstLocal.Columns.Add("HostName", 200);
+            lstLocal.Columns.Add("MAC Address", 300);
+            lstLocal.Sorting = SortOrder.Descending;
+            Ping_all();   //Automate pending
+
+
+        }
+
+        static string NetworkGateway()
+        {
+            string ip = null;
+
+            foreach (NetworkInterface f in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (f.OperationalStatus == OperationalStatus.Up)
+                {
+                    foreach (GatewayIPAddressInformation d in f.GetIPProperties().GatewayAddresses)
+                    {
+                        ip = d.Address.ToString();
+                    }
+                }
+            }
+
+            return ip;
+        }
+
+        public void Ping_all()
+        {
+
+            string gate_ip = NetworkGateway();
+
+            //Extracting and pinging all other ip's.
+            string[] array = gate_ip.Split('.');
+    
+            for (int i = 2; i <= 255; i++)
+            {
+
+                string ping_var = array[0] + "." + array[1] + "." + array[2] + "." + i;
+
+                //time in milliseconds           
+                Ping(ping_var, 4, 4000);
+
+            }
+
+        }
+
+        public void Ping(string host, int attempts, int timeout)
+        {
+            for (int i = 0; i < attempts; i++)
+            {
+                new Thread(delegate ()
+                {
+                    try
+                    {
+                        System.Net.NetworkInformation.Ping ping = new System.Net.NetworkInformation.Ping();
+                        ping.PingCompleted += new PingCompletedEventHandler(PingCompleted);
+                        ping.SendAsync(host, timeout, host);
+                    }
+                    catch
+                    {
+                        // Do nothing and let it try again until the attempts are exausted.
+                        // Exceptions are thrown for normal ping failurs like address lookup
+                        // failed.  For this reason we are supressing errors.
+                    }
+                }).Start();
+            }
+        }
+
+        private void PingCompleted(object sender, PingCompletedEventArgs e)
+        {
+            string ip = (string)e.UserState;
+            if (e.Reply != null && e.Reply.Status == IPStatus.Success)
+            {
+                string hostname = GetHostName(ip);
+                string macaddres = GetMacAddress(ip);
+                string[] arr = new string[3];
+
+                //store all three parameters to be shown on ListView
+                arr[0] = ip;
+                arr[1] = hostname;
+                arr[2] = macaddres;
+
+                // Logic for Ping Reply Success
+                ListViewItem item;
+                if (this.InvokeRequired)
+                {
+
+                    this.Invoke(new Action(() =>
+                    {
+
+                        item = new ListViewItem(arr);
+
+                        lstLocal.Items.Add(item);
+
+
+                    }));
+                }
+
+
+            }
+            else
+            {
+                // MessageBox.Show(e.Reply.Status.ToString());
+            }
+        }
+
+        public string GetHostName(string ipAddress)
+        {
+            try
+            {
+                IPHostEntry entry = Dns.GetHostEntry(ipAddress);
+                if (entry != null)
+                {
+                    return entry.HostName;
+                }
+            }
+            catch (SocketException)
+            {
+                // MessageBox.Show(e.Message.ToString());
+            }
+
+            return null;
+        }
+
+
+        //Get MAC address
+        public string GetMacAddress(string ipAddress)
+        {
+            string macAddress = string.Empty;
+            System.Diagnostics.Process Process = new System.Diagnostics.Process();
+            Process.StartInfo.FileName = "arp";
+            Process.StartInfo.Arguments = "-a " + ipAddress;
+            Process.StartInfo.UseShellExecute = false;
+            Process.StartInfo.RedirectStandardOutput = true;
+            Process.StartInfo.CreateNoWindow = true;
+            Process.Start();
+            string strOutput = Process.StandardOutput.ReadToEnd();
+            string[] substrings = strOutput.Split('-');
+            if (substrings.Length >= 8)
+            {
+                macAddress = substrings[3].Substring(Math.Max(0, substrings[3].Length - 2))
+                         + "-" + substrings[4] + "-" + substrings[5] + "-" + substrings[6]
+                         + "-" + substrings[7] + "-"
+                         + substrings[8].Substring(0, 2);
+                return macAddress;
+            }
+
+            else
+            {
+                return "OWN Machine";
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // ******************** system startup
@@ -86,11 +286,12 @@ namespace StaffMoniteringSystem
 
         public void MinimizeApp(string parameter)
         {
+ 
             if (parameter == "-minimized")
             {
                 this.WindowState = FormWindowState.Minimized;
                 notifyIcon1.Visible = true;
-                notifyIcon1.BalloonTipText = "Program is started and running in the background...";
+                notifyIcon1.BalloonTipText = "Screen Monitoring started & running in background...";
                 notifyIcon1.ShowBalloonTip(500);
                 Hide();
             }
@@ -105,6 +306,7 @@ namespace StaffMoniteringSystem
             string ApplicationPath = "\"" + Application.ExecutablePath.ToString() + "\" -minimized";
             key.SetValue("StaffMoniteringSystem", ApplicationPath);
             key.Close();
+
         }
 
         // *********************** system startup
@@ -113,17 +315,37 @@ namespace StaffMoniteringSystem
 
 
 
+         public static String CheckStatus() {
+            String status = "";
+            try
+            {
+                WebClient clientck = new WebClient();
+                clientck.Credentials = CredentialCache.DefaultCredentials;
+                clientck.Headers.Add("Token", Global.TokenY.ToString());
+                var responseck = clientck.UploadString(@"https://friendsmatrimony.com/api/admin/check-status", "status");
+                var jObjectck = JObject.Parse(responseck);
+                status = jObjectck.GetValue("status").ToString();
 
 
+                return status.ToString(); 
+
+            }
+            catch (Exception error)
+            {
 
 
+            }
+            return status;
+        }
 
+
+      
 
 
 
         private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            string mainfolderpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string mainfolderpath = Path.GetPathRoot(Environment.SystemDirectory);
             System.IO.Directory.CreateDirectory(mainfolderpath + "/sm");
 
             Bitmap bm = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
@@ -131,7 +353,7 @@ namespace StaffMoniteringSystem
             g.CopyFromScreen(0, 0, 0, 0, bm.Size);
             // pictureBox3.Image = bm;
 
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string path = Path.GetPathRoot(Environment.SystemDirectory);
             var timestamp = DateTime.Now.ToFileTime();
             bm.Save(path + "/sm/" + timestamp + ".jpg", ImageFormat.Jpeg);
             string myFile = @path + "/sm/" + timestamp + ".jpg";
@@ -146,10 +368,9 @@ namespace StaffMoniteringSystem
                 var jObjectck = JObject.Parse(responseck);
                 var status = jObjectck.GetValue("status").ToString();
 
-                //MessageBox.Show(status);
-
                 if (status.ToString() == "True")
                 {
+
                         try
                         {
                        // MessageBox.Show("Ready to Send data");
@@ -215,13 +436,13 @@ namespace StaffMoniteringSystem
             g.CopyFromScreen(0, 0, 0, 0, bm.Size);
             pictureBox3.Image = bm;
 
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            var timestamp = DateTime.Now.ToFileTime();
-            bm.Save(path + "/sm/" + timestamp + ".jpg", ImageFormat.Jpeg);
-            
+            //string path = Path.GetPathRoot(Environment.SystemDirectory);
+            //var timestamp = DateTime.Now.ToFileTime();
+            //bm.Save(path + "/sm/" + timestamp + ".jpg", ImageFormat.Jpeg);
+
         }
 
- 
+
 
         private void PictureBox5_Click(object sender, EventArgs e)
         {
@@ -305,7 +526,7 @@ namespace StaffMoniteringSystem
             var jObject = JObject.Parse(response);
 
             var message = jObject.GetValue("message").ToString();
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string path = Path.GetPathRoot(Environment.SystemDirectory);
             string folderPath = @path + "/sm/";
             if (File.Exists(folderPath))
             {
@@ -352,9 +573,13 @@ namespace StaffMoniteringSystem
 
         private void Guna2Button4_Click(object sender, EventArgs e)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            StreamWriter File = new StreamWriter(path+"/data.dat");
+            string path = Path.GetPathRoot(Environment.SystemDirectory);
 
+            StreamWriter File = new StreamWriter(path+"/data.dat");
+        //    StreamWriter remoteFile = new StreamWriter(@"\\192.168.8.173\Users\Default\Desktop");
+
+        //    remoteFile.Write(Login.quantity + "," + Global.TokenY.ToString());
+       //     remoteFile.Close();
             File.Write(Login.quantity +","+ Global.TokenY.ToString());
             File.Close();
 
