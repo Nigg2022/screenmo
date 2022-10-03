@@ -50,7 +50,7 @@ namespace StaffMoniteringSystem
                     var responseck = clientck.UploadString(@"https://friendsmatrimony.com/api/admin/check-status", "status");
                     var jObjectck = JObject.Parse(responseck);
                     var status = jObjectck.GetValue("status").ToString();
-                    MessageBox.Show(status);
+                   // MessageBox.Show(status);
                     if (status == "True")
                     {
  

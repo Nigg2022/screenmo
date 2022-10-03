@@ -426,8 +426,8 @@ namespace StaffMoniteringSystem
 
         private void Label9_Click(object sender, EventArgs e)
         {
-            var network = new Network();
-            network.Show();
+           // var network = new Network();
+           // network.Show();
         }
     }
 }
