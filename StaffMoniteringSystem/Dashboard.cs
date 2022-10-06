@@ -9,15 +9,17 @@ using System.Net;
 using System.Timers;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
- 
+using System.Diagnostics;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Linq;
 
 namespace StaffMoniteringSystem
 {
     public partial class Dashboard : Form
     {
         public static String checklogin;
- 
-       
+        
+
 
         class Global
         {
@@ -30,12 +32,12 @@ namespace StaffMoniteringSystem
             public static string TextData { get; set; }
         }
 
+        
         public Dashboard(string token)
         {
 
             InitializeComponent();
 
-            SetStartup(); //This function will set your app in the registry to run on startup.
             MinimizeApp("-minimized");
 
             chart1.Series["Series1"].Points.AddXY("1", "60");
@@ -51,7 +53,7 @@ namespace StaffMoniteringSystem
             chart2.Series["s2"].Points.AddXY("3", "56");
             chart2.Series["s2"].Points.AddXY("4", "78");
 
- 
+
             Bitmap bm = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics g = Graphics.FromImage(bm);
             g.CopyFromScreen(0, 0, 0, 0, bm.Size);
@@ -59,7 +61,7 @@ namespace StaffMoniteringSystem
 
             var aTimer = new System.Timers.Timer(1000);
             aTimer.Elapsed += new ElapsedEventHandler(Timer_Elapsed);
-            aTimer.Interval = 600000;
+            aTimer.Interval = 6000;
             aTimer.Enabled = true;
             Global.TokenY = token;
 
@@ -79,22 +81,23 @@ namespace StaffMoniteringSystem
                 Hide();
                 pictureBox7.Image = StaffMoniteringSystem.Properties.Resources.circle_24__1_;
             }
-            
 
-
-
-
+            Dashboard fc = Application.OpenForms["Form1 "] != null ? (Dashboard)Application.OpenForms["Dashboard "] : null;
+            if (fc != null)
+            {
+                fc.Close();
+            }
 
 
         }
 
 
 
- 
 
-        // ******************** system startup
 
-        static void Main(string[] args)
+    // ******************** form minimized
+
+    static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -111,7 +114,7 @@ namespace StaffMoniteringSystem
 
         public void MinimizeApp(string parameter)
         {
- 
+
             if (parameter == "-minimized")
             {
                 this.WindowState = FormWindowState.Minimized;
@@ -122,25 +125,14 @@ namespace StaffMoniteringSystem
             }
 
         }
-
-        private void SetStartup()
-        {
-            Microsoft.Win32.RegistryKey key;
-            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-            key.SetValue("StaffMoniteringSystem", Application.ExecutablePath.ToString());
-            string ApplicationPath = "\"" + Application.ExecutablePath.ToString() + "\" -minimized";
-            key.SetValue("StaffMoniteringSystem", ApplicationPath);
-            key.Close();
-
-        }
-
-        // *********************** system startup
+        // ******************** form minimized
 
 
 
 
 
-         public static String CheckStatus() {
+
+        public static String CheckStatus() {
             String status = "";
             try
             {
@@ -152,7 +144,7 @@ namespace StaffMoniteringSystem
                 status = jObjectck.GetValue("status").ToString();
 
 
-                return status.ToString(); 
+                return status.ToString();
 
             }
             catch (Exception error)
@@ -163,8 +155,6 @@ namespace StaffMoniteringSystem
             return status;
         }
 
-
-      
 
 
 
@@ -186,6 +176,7 @@ namespace StaffMoniteringSystem
             //  check client
             try
             {
+                // MessageBox.Show(Global.TokenY.ToString());
                 WebClient clientck = new WebClient();
                 clientck.Credentials = CredentialCache.DefaultCredentials;
                 clientck.Headers.Add("Token", Global.TokenY.ToString());
@@ -196,43 +187,35 @@ namespace StaffMoniteringSystem
                 if (status.ToString() == "True")
                 {
 
-                        try
-                        {
-                       // MessageBox.Show("Ready to Send data");
+                    try
+                    {
+                        // MessageBox.Show("Ready to Send data");
                         WebClient client = new WebClient();
-                             client.Credentials = CredentialCache.DefaultCredentials;
-                             client.Headers.Add("Token", Global.TokenY.ToString());
-                            client.UploadFile(@"https://friendsmatrimony.com/api/admin/screen-log", "POST", myFile);
-                            client.Dispose();
+                        client.Credentials = CredentialCache.DefaultCredentials;
+                        client.Headers.Add("Token", Global.TokenY.ToString());
+                        client.UploadFile(@"https://friendsmatrimony.com/api/admin/screen-log", "POST", myFile);
+                        client.Dispose();
                         string folderPath = @path + "/sm/";
                         Directory.Delete(folderPath, true);
                     }
-                       catch (Exception err)
-                       {
-                            MessageBox.Show(err.Message);
-                       }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message);
+                    }
                 }
                 else
                 {
-                  //  MessageBox.Show("You have not logged in, you may logout or in break");
+                    //  MessageBox.Show("You have not logged in, you may logout or in break");
                 }
 
-                }catch (Exception error)
+            } catch (Exception error)
             {
                 MessageBox.Show(error.Message);
             }
 
-          
-
- 
-
-
-
         }
 
 
-
- 
 
 
         internal static void Show(JObject jObject)
@@ -299,14 +282,26 @@ namespace StaffMoniteringSystem
             WindowState = FormWindowState.Minimized;
         }
 
+ 
         private void NotifyIcon1_Click(object sender, EventArgs e)
         {
             ShowInTaskbar = true;
             notifyIcon1.Visible = false;
-              WindowState = FormWindowState.Normal;
+            WindowState = FormWindowState.Normal;
 
-            Dashboard dashboard = new Dashboard(Global.TokenY);
-            dashboard.Show();
+            Form fc = Application.OpenForms["Dashboard"];
+
+            if (fc != null)
+                fc.Close();
+
+       //     fc.Show();
+
+             
+            Dashboard ddb = new Dashboard(Global.TokenY.ToString());
+            ddb.Closed += (s, args) => this.Close();
+            ddb.Show();
+
+
         }
 
  

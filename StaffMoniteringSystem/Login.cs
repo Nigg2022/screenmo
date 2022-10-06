@@ -83,18 +83,7 @@ namespace StaffMoniteringSystem
                 {
 
                 }
-
-
-
-
-
-
-
-
-
-
                //MessageBox.Show(values[0].ToString());
-
             }
             else
             {// file exist else *************************
@@ -109,7 +98,7 @@ namespace StaffMoniteringSystem
 
                 if (useName != "" && passWord != "" && userToken != "")
                 {
-                    // String token = await RunAsync(useName, passWord);
+ 
 
                     quantity = displayName;
                     quantity_to = userToken;
@@ -143,6 +132,21 @@ namespace StaffMoniteringSystem
 
 
 
+        // *********************** system startup
+        private void SetStartup()
+        {
+            Microsoft.Win32.RegistryKey key;
+            key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+            key.SetValue("StaffMoniteringSystem", Application.ExecutablePath.ToString());
+            string ApplicationPath = "\"" + Application.ExecutablePath.ToString() + "\" -minimized";
+            key.SetValue("StaffMoniteringSystem", ApplicationPath);
+            key.Close();
+
+        }
+
+        // *********************** system startup
+
+
 
 
         private async void Button1_Click(object sender, EventArgs e)
@@ -171,26 +175,37 @@ namespace StaffMoniteringSystem
             }
             else
             {
-                String token = await RunAsync(ur, pas);
-
-                if (token == "")
+                try
                 {
-                    label7.Text = "Login Fail, Contect Administrator.";
+                    string token = await RunAsync(ur, pas);
+
+                    if (token == "")
+                    {
+                        label7.Text = "Login Fail, Contect Administrator.";
+                    }
+                    else
+                    {
+                        // save user & pass to setting
+                        Properties.Settings.Default.userName = ur;
+                        Properties.Settings.Default.passUser = pas;
+                        Properties.Settings.Default.Save();
+
+                        SetStartup();// create shortcut on startup
+
+                        this.Hide();
+                        var Dashboard = new Dashboard(token);
+
+                        Dashboard.Closed += (s, args) => this.Close();
+                        Dashboard.Show();
+                    }
                 }
-                else
+                catch (NullReferenceException err)
                 {
-                    // save user & pass to setting
-                    Properties.Settings.Default.userName = ur;
-                    Properties.Settings.Default.passUser = pas;
-                    
-                    Properties.Settings.Default.Save();
+                    label7.Text = "Login Fail, Usename or Password not match.";
+                    label7.ForeColor = System.Drawing.Color.Red;
 
-                    this.Hide();
-                    var Dashboard = new Dashboard(token);
-
-                    Dashboard.Closed += (s, args) => this.Close();
-                    Dashboard.Show();
                 }
+
 
             }
         }
@@ -202,50 +217,55 @@ namespace StaffMoniteringSystem
 
             using (var client = new HttpClient())
             {
+            
 
-                client.BaseAddress = new Uri("https://friendsmatrimony.com/api/admin/auth");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                //setup login data
 
-                var username = username_f.ToString();
-                var password = password_f.ToString();
-                var formContent = new FormUrlEncodedContent(new[]
-                {
-                new KeyValuePair<string, string>("email", username),
-                new KeyValuePair<string, string>("password", password),
-                });
+                    client.BaseAddress = new Uri("https://friendsmatrimony.com/api/admin/auth");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    //setup login data
 
-                //send request
-                HttpResponseMessage responseMessage = await client.PostAsync("", formContent);
-                //get access token from response body
-                var responseJson = await responseMessage.Content.ReadAsStringAsync();
+                    var username = username_f.ToString();
+                    var password = password_f.ToString();
+                    var formContent = new FormUrlEncodedContent(new[]
+                    {
+                    new KeyValuePair<string, string>("email", username),
+                    new KeyValuePair<string, string>("password", password),
+                    });
+
+                    //send request
+                    HttpResponseMessage responseMessage = await client.PostAsync("", formContent);
+                    //get access token from response body
+                    var responseJson = await responseMessage.Content.ReadAsStringAsync();
                 
-                var jObject = JObject.Parse(responseJson);
-                
-                var token = jObject.GetValue("token").ToString();
+                    var jObject = JObject.Parse(responseJson);
+ 
+                    var token = jObject.GetValue("token").ToString();
+
+                    JObject jo = JObject.Parse(responseJson);
+                    var mname = (string)jo.SelectToken("manager.name");
+
+                    quantity = mname;
+                    quantity_to = token;
+
+                    Properties.Settings.Default.tokenUser = token;
+                    Properties.Settings.Default.displayName = mname;
+
+                    Properties.Settings.Default.Save();
+
+                    if (token.ToString() != "")
+                    {
+                        return token.ToString();
+                    }
+                    else
+                    {
+                        return "";
+                    }
+
+               
 
 
-                JObject jo = JObject.Parse(responseJson);
-                var mname = (string)jo.SelectToken("manager.name");
-
-                quantity = mname;
-                quantity_to = token;
-
-                Properties.Settings.Default.tokenUser = token;
-                Properties.Settings.Default.displayName = mname;
-                
-                Properties.Settings.Default.Save();
-
-                if (token.ToString() != "")
-                {
-                    return token.ToString();
                 }
-                else {
-                    return "";
-                }
-
-            }
             
         }
 
