@@ -9,9 +9,7 @@ using System.Net;
 using System.Timers;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using System.Diagnostics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Linq;
+ 
 
 namespace StaffMoniteringSystem
 {
@@ -61,7 +59,7 @@ namespace StaffMoniteringSystem
 
             var aTimer = new System.Timers.Timer(1000);
             aTimer.Elapsed += new ElapsedEventHandler(Timer_Elapsed);
-            aTimer.Interval = 6000;
+            aTimer.Interval = 600000;
             aTimer.Enabled = true;
             Global.TokenY = token;
 
@@ -82,12 +80,7 @@ namespace StaffMoniteringSystem
                 pictureBox7.Image = StaffMoniteringSystem.Properties.Resources.circle_24__1_;
             }
 
-            Dashboard fc = Application.OpenForms["Form1 "] != null ? (Dashboard)Application.OpenForms["Dashboard "] : null;
-            if (fc != null)
-            {
-                fc.Close();
-            }
-
+            
 
         }
 

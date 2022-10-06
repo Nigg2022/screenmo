@@ -277,7 +277,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 16);
             this.label8.TabIndex = 6;
-            this.label8.Text = "V 1.0.0.39";
+            this.label8.Text = "V 1.0.0.40";
             // 
             // pictureBox1
             // 
