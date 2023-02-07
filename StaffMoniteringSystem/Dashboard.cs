@@ -59,7 +59,7 @@ namespace StaffMoniteringSystem
 
             var aTimer = new System.Timers.Timer(1000);
             aTimer.Elapsed += new ElapsedEventHandler(Timer_Elapsed);
-            aTimer.Interval = 600000;
+            aTimer.Interval = 300000;
             aTimer.Enabled = true;
             Global.TokenY = token;
 

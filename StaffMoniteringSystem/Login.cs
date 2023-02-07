@@ -279,8 +279,12 @@ namespace StaffMoniteringSystem
             Application.Exit();
         }
 
- 
+        private void PictureBox5_Click(object sender, EventArgs e)
+        {
+            var rpc = new Network();
 
-
+            rpc.Closed += (s, args) => this.Close();
+            rpc.Show();
+        }
     }
 }

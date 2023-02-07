@@ -75,7 +75,7 @@ namespace StaffMoniteringSystem
                 string ping_var = array[0] + "." + array[1] + "." + array[2] + "." + i;
 
                 //time in milliseconds           
-                Ping(ping_var, 4, 4000);
+                Ping(ping_var, 8, 4000);
 
             }
 
