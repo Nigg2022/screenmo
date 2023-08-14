@@ -92,7 +92,7 @@ namespace StaffMoniteringSystem
 
                 var useName = Properties.Settings.Default.userName;
                 var passWord = Properties.Settings.Default.passUser;
-                var userToken = Properties.Settings.Default.tokenUser;
+                var userToken = Properties.Settings.Default.tokenUser; 
                 var displayName = Properties.Settings.Default.displayName;
 
 
